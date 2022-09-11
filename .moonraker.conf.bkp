@@ -1,0 +1,61 @@
+[server]
+host = 0.0.0.0
+port = 7125
+enable_debug_logging = False
+
+[authorization]
+cors_domains = 
+	*.local
+	*.lan
+	*.home
+	*.iot
+	*://app.fluidd.xyz
+trusted_clients = 
+	10.0.0.0/8
+	127.0.0.0/8
+	169.254.0.0/16
+	172.16.0.0/12
+	192.168.0.0/16
+	FE80::/10
+	::1/128
+
+[history]
+
+[octoprint_compat]
+
+[file_manager]
+config_path = ~/klipper_config
+
+[data_store]
+temperature_store_size = 600
+gcode_store_size = 1000
+
+[update_manager]
+
+[update_manager client fluidd]
+type = web
+repo = cadriel/fluidd
+path = ~/fluidd
+
+[update_manager client klipper_toolchanger]
+type = git_repo
+path = ~/Klipper_ToolChanger
+origin = https://github.com/TypQxQ/Klipper_ToolChanger.git
+install_script = install.sh
+is_system_service = False
+
+[paneldue]
+serial = /dev/serial0
+baud = 57600
+machine_name = Jubilee
+macros = 
+	INIT
+	TOOL_UNLOCK
+	TOOL_LOCK
+	TOOL_DROPOFF
+	LOAD_FILAMENT
+	UNLOAD_FILAMENT
+confirmed_macros = 
+	RESTART
+	FIRMWARE_RESTART
+
